@@ -2,6 +2,10 @@ import express from "express";
 import helmet from "helmet";
 import cors from "cors";
 import compression from "compression";
+import { requestId } from "./middlewares/requestId.js";
+import { errorHandler } from "./middlewares/errorHandler.js";
+import auditRoutes from "./routes/audit.routes.js";
+
 
 const app = express();
 
@@ -16,5 +20,14 @@ app.get("/health", (req, res) => {
         status: "OK"
     });
 });
+
+app.use(requestId);
+
+app.use("/api/v1/audit", auditRoutes);
+
+
+
+app.use(errorHandler);
+
 
 export default app;
