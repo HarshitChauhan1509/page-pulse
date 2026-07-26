@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:7-alpine
+
+    container_name: page-pulse-redis
+
+    restart: always
+
+    ports:
+      - "6379:6379"
+
+  api:
+    build: .
+
+    container_name: page-pulse-api
+
+    restart: always
+
+    depends_on:
+      - redis
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      PORT: 3000
+
+      REDIS_URL: redis://redis:6379
+
+      CACHE_TTL: 300
+
+      REQUEST_TIMEOUT: 5000
+
+      MAX_CONCURRENT_REQUESTS: 10
+
+      RATE_LIMIT_WINDOW_MS: 900000
+
+      RATE_LIMIT_MAX: 100
