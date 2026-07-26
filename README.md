@@ -1,68 +1,42 @@
 # Page Pulse
 
-Production-grade URL audit service built for **Digital Heroes SDE Task A**.
+Page Pulse is a website auditing service that analyzes a webpage and returns metadata, response time, page size, images, links, and heading information.
 
-The project has two parts:
+## Tech Stack
 
-- `server` - Express API for validating, fetching, caching, and auditing URLs
-- `client` - Next.js frontend for submitting audits and displaying results
+- Next.js
+- Node.js
+- Express
+- Upstash Redis
+- Docker
+- Vitest
 
-## Submission Links
-
-- Live URL: add your deployed frontend URL here
-- API URL: add your deployed backend URL here
-- GitHub repository: add your public repository URL here
-
-## Run Locally
-
-Start Redis locally, then run the API:
-
-```bash
-cd server
-npm install
-npm run dev
-```
-
-Run the frontend:
-
-```bash
-cd client
-npm install
-npm run dev
-```
-
-Set `client/.env.local`:
-
-```bash
-NEXT_PUBLIC_API_URL=http://localhost:3000
-```
-
-## Verification
-
-Backend:
-
-```bash
-cd server
-npm test
-npm run lint
-```
+## Live Demo
 
 Frontend:
+https://page-pulse-banedu5yj-kratos404zeus-9409s-projects.vercel.app/
 
-```bash
-cd client
-npm run lint
-npm run build
-```
+Backend:
+https://page-pulse-m3db.onrender.com
 
-## API
+## Local Setup
 
-See `server/README.md` for the full API contract.
+### Backend
 
-## Digital Heroes Credit
+cd backend
 
-The frontend footer includes the required visible credit line:
+npm install
 
-`Built for Digital Heroes Training Task`
+npm run dev
 
-The credit links to `https://digitalheroesco.com`.
+### Frontend
+
+cd frontend
+
+npm install
+
+npm run dev
+
+## AI Usage
+
+AI tools were used to accelerate implementation, brainstorm architecture, review code quality, and improve documentation. All architectural decisions, implementation choices, debugging, and final code integration were validated and completed manually.
